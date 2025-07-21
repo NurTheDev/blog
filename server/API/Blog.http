@@ -1,0 +1,16 @@
+### GET request for getting all the blogs
+GET http://localhost:3000/blog/getAllBlogs
+
+### POST request for creating a blog
+POST http://localhost:3000/blog/createBlog
+Content-Type: application/form
+
+{
+  "title": "demo1",
+  "content": "demo1",
+  "thumbnail": "demo1",
+  "user": "63d2e6e3e1b8d2e6e3e1b8d2"
+}
+
+### GET request for getting all the blogs by id
+GET http://localhost:3000/blog/getBlogsByUser/687e68bcc089e891d6fdf15b

@@ -33,6 +33,7 @@ const userSchema = new Schema({
         trim: true,
         unique: true,
         sparse: true,
+        required: false,
         match: [/^\d{10}$/, 'Phone number must be 10 digits long'],
     },
     address: {
@@ -54,7 +55,11 @@ const userSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    blogs: [{
+        type: Schema.Types.ObjectId,
+        ref: "blog"
+    }]
 },{
     versionKey: false,
     timestamps: true

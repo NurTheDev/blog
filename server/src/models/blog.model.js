@@ -12,7 +12,7 @@ const blogSchema = new Schema({
         },
         thumbnail: {
             type: String,
-            required: true
+            required: false
         },
         user: {
             type: Schema.Types.ObjectId,
@@ -32,3 +32,5 @@ const blogSchema = new Schema({
         versionKey: false,
         timestamps: true
     })
+const blogModel = mongoose.model("blog", blogSchema);
+module.exports = blogModel

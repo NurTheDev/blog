@@ -1,0 +1,9 @@
+const express = require("express");
+const {upload} = require("../middleware/multer.middleware");
+const router = express.Router();
+const blogController = require("../controllers/blog.controller");
+router.post("/createBlog", upload.single("thumbnail"), blogController.createBlog);
+router.get("/getAllBlogs", blogController.getAllBlogs);
+router.get("/getBlogsByUser/:id", blogController.getBlogsByUser);
+router.put("/updateBlog/:id", upload.single("thumbnail"), blogController.updateBlog);
+module.exports = router;
