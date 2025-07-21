@@ -32,6 +32,7 @@ const userSchema = new Schema({
         type: String,
         trim: true,
         unique: true,
+        sparse: true,
         match: [/^\d{10}$/, 'Phone number must be 10 digits long'],
     },
     address: {
