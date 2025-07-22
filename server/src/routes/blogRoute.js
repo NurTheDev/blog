@@ -6,4 +6,5 @@ router.post("/createBlog", upload.single("thumbnail"), blogController.createBlog
 router.get("/getAllBlogs", blogController.getAllBlogs);
 router.get("/getBlogsByUser/:id", blogController.getBlogsByUser);
 router.put("/updateBlog/:id", upload.single("thumbnail"), blogController.updateBlog);
+router.delete("/deleteBlog/:id", blogController.deleteBlog);
 module.exports = router;

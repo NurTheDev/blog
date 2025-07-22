@@ -65,6 +65,12 @@ exports.getBlogsByUser = async (req, res) => {
         res.status(500).json({message: "Error getting all blogs"});
     }
 }
+/**
+ * Update a blog
+ * @param req
+ * @param res
+ * @returns {Promise<*>}
+ */
 exports.updateBlog = async (req, res) => {
     console.log("working")
     const {id} = req.params
@@ -94,5 +100,17 @@ exports.updateBlog = async (req, res) => {
     } catch (error) {
         console.error("Error updating blog:", error);
         res.status(500).json({message: "Error updating blog"});
+    }
+}
+
+exports.deleteBlog = async (req, res)=>{
+    const {id} = req.params
+    try{
+        const blog = await blogModel.findByIdAndDelete({_id: id})
+        if(!blog) return res.status(400).json({message: "Blog not found"})
+        res.status(200).json({message: "Blog deleted successfully"})
+    }catch (error){
+        console.error("Error deleting blog:", error);
+        res.status(500).json({message: "Error deleting blog"});
     }
 }

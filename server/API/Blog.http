@@ -14,3 +14,6 @@ Content-Type: application/form
 
 ### GET request for getting all the blogs by id
 GET http://localhost:3000/blog/getBlogsByUser/687e68bcc089e891d6fdf15b
+
+### DELETE request for deleting a blog by id
+DELETE http://localhost:3000/blog/deleteBlog/687e6ef199b363509f28b34c
