@@ -46,7 +46,7 @@ exports.login = async(req, res)=>{
         if(!user) return res.status(400).json({message:"User not found"})
         const isPasswordValid = await bcrypt.compare(password, user.password)
         if(!isPasswordValid) return res.status(400).json({message:"Invalid password"})
-        res.status(200).json({message:"User logged in successfully"})
+        res.status(200).json({message:"User logged in successfully", user})
     }catch(error){
         console.error("Error logging in Auth.controller:", error);
         res.status(500).json({ message: "Error logging in user" });

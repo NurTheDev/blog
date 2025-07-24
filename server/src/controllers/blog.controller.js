@@ -11,6 +11,7 @@ const fs = require("fs");
 exports.createBlog = async (req, res) => {
     const {title, content, user} = req.body;
     const thumbnail = req.file.filename
+    console.log(req.file)
     const validationResponse = validation(req);
     if (!validationResponse.status) return res.status(400).json({message: validationResponse.message})
     try {
