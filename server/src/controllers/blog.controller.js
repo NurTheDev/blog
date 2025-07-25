@@ -115,3 +115,15 @@ exports.deleteBlog = async (req, res)=>{
         res.status(500).json({message: "Error deleting blog"});
     }
 }
+exports.getBlogById = async(req, res)=>{
+    const {id} = req.params
+    console.log(id)
+    try{
+        const blog = await blogModel.findById(id)
+        if(!blog) return res.status(400).json({message: "Blog not found"})
+        res.status(200).json({message: "Blog found successfully", blog})
+    }catch (error){
+        console.error("Error getting blog:", error);
+        res.status(500).json({message: "Error getting blog"});
+    }
+}
